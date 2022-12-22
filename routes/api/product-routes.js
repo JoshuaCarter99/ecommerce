@@ -20,10 +20,10 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   // find a single product by its `id`
   try {
-    const productData = await Product.findAll({
+    const newProductData = await Product.findAll({
       include: [{ model: Category }, { model: Tag }],
     });
-    res.status(200).json(productData);
+    res.status(200).json(newProductData);
   } catch (err) {
     res.status(500).json(err);
   }
